@@ -34,6 +34,11 @@ public class World extends JPanel {
             int x = (int) (Math.random() * 800 / 2 + 800 / 2);
             int y = (int) (Math.random() * 600);
             sprites.add(new Glob(x,y));    
+        }
+        for (int i = 0; i < 20; i++) {
+            int x = (int) (Math.random() * 800 / 2 + 800 / 2);
+            int y = (int) (Math.random() * 600);
+            sprites.add(new Food(x,y));    
         }         
     }
     
@@ -42,6 +47,13 @@ public class World extends JPanel {
         for (Sprite sprite : sprites) {
             sprite.draw(g);
             sprite.update();
+            for(Sprite other : sprites){
+                if(sprite != other){
+                    sprite.collide(other);
+                }
+                
+            }
+            
         }
     }
     

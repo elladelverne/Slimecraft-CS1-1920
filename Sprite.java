@@ -1,3 +1,4 @@
+  
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -60,7 +61,14 @@ public abstract class Sprite {
         return color;
     }
     
-    public boolean collide(Sprite other) {
-        return this.bounds.intersects(other.bounds);
+    public void collide(Sprite other) {
+       if(this.bounds.intersects(other.bounds)){
+           this.didCollide();
+           other.didCollide();
+       }
+    }
+    public void didCollide(){
+        this.vx = -this.vx;
+        this.vy = -this.vy;
     }
 }
