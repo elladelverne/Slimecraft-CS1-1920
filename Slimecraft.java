@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author jword
+ * @author 801621
  */
 public class Slimecraft extends JFrame  {
 
